@@ -27,6 +27,12 @@ public class AuthController {
 	private UserRepository userRepo;
 	
 	
+	@GetMapping("/")
+	public ResponseEntity<String> homeController() {
+		
+		return new ResponseEntity<String>("Your api works just fine",HttpStatus.OK);
+	}
+	
 	@PostMapping("/signup")
 	public ResponseEntity<User> registerUserHandler(@RequestBody User user) throws UserException {
 		User createdUser = userService.registerUser(user);

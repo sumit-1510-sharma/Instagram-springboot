@@ -109,8 +109,9 @@ public class UserServiceImplementation implements UserService {
 		follower.setEmail(reqUser.getEmail());
 		follower.setId(reqUser.getId());
 		follower.setName(reqUser.getName());
-		follower.setUserImage(reqUser.getUsername());
+		follower.setUserImage(reqUser.getImage());
 		follower.setUsername(reqUser.getUsername());
+		follower.setUserImage(reqUser.getImage());		
 		
 		UserDto following = new UserDto();
 		
@@ -140,7 +141,7 @@ public class UserServiceImplementation implements UserService {
 		follower.setEmail(reqUser.getEmail());
 		follower.setId(reqUser.getId());
 		follower.setName(reqUser.getName());
-		follower.setUserImage(reqUser.getUsername());
+		follower.setUserImage(reqUser.getImage());
 		follower.setUsername(reqUser.getUsername());
 		
 		UserDto following = new UserDto();
@@ -173,11 +174,11 @@ public class UserServiceImplementation implements UserService {
 		
 		List<User> users = userRepository.findByQuery(query);
 		
-		if(users.size()==0) {
-			throw new UserException("user not found");
+		if(users.size()>0) {
+			return users;
 		}
 		
-		return users;
+		throw new UserException("user not found");
 	}
 
 	@Override

@@ -33,6 +33,9 @@ public class PostController {
 	@Autowired
 	private UserService userService;
 	
+	
+	
+	
 	@PostMapping("/create")
 	public ResponseEntity<Post> createPostHandler(@RequestBody Post post,@RequestHeader("Authorization") String token) throws UserException {
 		
@@ -41,6 +44,10 @@ public class PostController {
 		
 		return new ResponseEntity<Post>(createdPost,HttpStatus.OK);
 	}
+	
+	
+	
+	
 	
 	@GetMapping("/all/{userId}")
 	public ResponseEntity<List<Post>> findPostByUserIdHandler(@PathVariable(name="userId") Integer userIdParameter) throws UserException {

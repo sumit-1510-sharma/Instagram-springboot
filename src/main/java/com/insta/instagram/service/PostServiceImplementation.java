@@ -1,5 +1,6 @@
 package com.insta.instagram.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +40,7 @@ public class PostServiceImplementation implements PostService {
 		userDto.setUsername(user.getUsername());
 		
 		post.setUser(userDto);
+		post.setCreatedAt(LocalDateTime.now());
 		Post createdPost = postRepository.save(post);
 		
 		return createdPost;

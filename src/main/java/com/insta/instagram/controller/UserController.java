@@ -26,6 +26,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	
+	
+	
+	
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findUserByIdHandler(@PathVariable(name="id") Integer idparameter) throws UserException {
 		
@@ -33,6 +37,12 @@ public class UserController {
 		
 		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("/username/{username}")
 	public ResponseEntity<User> findUserByUsernameHandler(@PathVariable(name="username") String usernameparameter) throws UserException {

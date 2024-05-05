@@ -32,6 +32,7 @@ public class AppConfig {
 		.and()
 		.authorizeHttpRequests()
 		.requestMatchers(HttpMethod.POST,"/signup").permitAll()
+		.requestMatchers(HttpMethod.GET,"/").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
@@ -51,9 +52,10 @@ public class AppConfig {
 				
 //				cfg.setAllowedOrigins(Collections.singletonList("*"));
 				cfg.setAllowedOrigins(Arrays.asList(
-						"http://localhost:3000", 
-						"http://localhost:4000",
-						"https://sumitsharma-instagramapp.vercel.app"));
+						"http://localhost:3000/", 
+						"http://localhost:4000/",
+						"https://sumitsharma-instagramapp.vercel.app/",
+						"http://sumitsharma-instagram-clone.s3-website.ap-south-1.amazonaws.com/"));
 				//cfg.setAllowedMethods(Arrays.asList("GET", "POST","DELETE","PUT"));
 				cfg.setAllowedMethods(Collections.singletonList("*"));
 				cfg.setAllowCredentials(true);
